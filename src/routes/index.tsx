@@ -35,7 +35,6 @@ import svcMove from "@/assets/svc-move.jpg";
 
 import { MotionFadeIn } from "@/components/site/MotionFadeIn";
 import { BeforeAfterSlider } from "@/components/site/BeforeAfterSlider";
-import { CleaningAssistant } from "@/components/site/CleaningAssistant";
 import { CountUp } from "@/components/site/CountUp";
 import { GoogleReviewsCarousel } from "@/components/site/GoogleReviewsCarousel";
 import {
@@ -77,7 +76,6 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <CleaningAssistant />
       <Transform />
       <Services />
       <Expect />
