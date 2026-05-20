@@ -96,15 +96,15 @@ function HomePage() {
 /* ============== 1. HERO ============== */
 function Hero() {
   return (
-    <section className="relative pb-28 md:pb-36">
+    <section className="relative pb-10 md:pb-36">
       {/* Full-bleed hero photo, sits behind fixed header */}
-      <div className="relative min-h-[720px] md:min-h-[800px] overflow-visible">
-        <div className="absolute inset-0 overflow-hidden rounded-b-[2rem]">
+      <div className="relative min-h-[460px] sm:min-h-[560px] md:min-h-[800px] overflow-visible">
+        <div className="absolute inset-0 overflow-hidden rounded-b-[1.5rem] md:rounded-b-[2rem]">
           <img
             src={heroImg}
             alt="323 Cleaning Solutions team in a bright kitchen"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 36%" }}
+            style={{ objectPosition: "center 32%" }}
             width={1920}
             height={1080}
           />
@@ -112,72 +112,80 @@ function Hero() {
         </div>
 
         {/* Quote card overlaps the photo and the next section, like the reference layout */}
-        <div className="absolute left-0 right-0 bottom-[-8.5rem] z-10 flex justify-center px-5">
-          <MotionFadeIn>
-            <div
-              className="relative w-full max-w-[820px] rounded-[30px] border border-white/80 px-5 sm:px-12 pt-12 pb-9 text-center backdrop-blur-[18px]"
-              style={{
-                background:
-                  "linear-gradient(120deg, rgba(255,255,255,0.96) 0%, rgba(247,250,255,0.94) 48%, rgba(226,237,255,0.93) 100%)",
-                boxShadow:
-                  "0 18px 48px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.88)",
-              }}
-            >
-              {/* Brand badge — circular with our logo */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-[-32px]">
-                <div className="w-[82px] h-[82px] rounded-full bg-white ring-4 ring-brand-blue shadow-[0_12px_24px_rgba(15,36,76,0.18)] flex items-center justify-center p-2">
-                  <img src={logo323} alt="323 Cleaning Solutions" className="w-full h-full object-contain" />
-                </div>
-              </div>
-
-              {/* Mini info row */}
-              <div className="relative flex justify-center gap-8 sm:gap-16 mb-6 text-[12px] font-semibold text-brand-navy/70 pt-1">
-                <span>Vetted Cleaners</span>
-                <span className="inline-flex items-center gap-1">
-                  5 <Star className="size-3 fill-brand-navy text-brand-navy" /> Service
-                </span>
-              </div>
-
-              {/* Headline */}
-              <h1
-                className="mx-auto font-display font-medium text-brand-navy max-w-[700px] mb-5"
-                style={{
-                  fontSize: "clamp(32px, 4.8vw, 56px)",
-                  lineHeight: 1.12,
-                  letterSpacing: "0",
-                }}
-              >
-                Your #1 {BRAND.region} Exterior Cleaning Service
-              </h1>
-
-              <p className="text-[14px] font-semibold text-brand-navy/80 mb-7">
-                Get Free Quote from a Trusted Cleaning Service
-              </p>
-
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="grid grid-cols-1 sm:[grid-template-columns:1.18fr_0.86fr_0.86fr] gap-4 sm:gap-5 mb-7"
-              >
-                <Field placeholder="Name" />
-                <Select options={["1 Bedroom", "2 Bedrooms", "3 Bedrooms", "4+ Bedrooms"]} />
-                <Select options={["1 Bathroom", "2 Bathrooms", "3+ Bathrooms"]} />
-                <Field placeholder="Email Address" type="email" />
-                <Field placeholder="Phone" type="tel" />
-                <Field placeholder="Zip Code" />
-              </form>
-
-              <button
-                type="submit"
-                onClick={(e) => e.preventDefault()}
-                className="inline-flex items-center justify-center rounded-full bg-brand-navy text-white font-extrabold px-10 py-4 text-[14px] min-w-[140px] shadow-soft hover:shadow-[0_12px_25px_rgba(15,36,76,0.35)] transition"
-              >
-                Get Price
-              </button>
-            </div>
-          </MotionFadeIn>
+        <div className="absolute left-0 right-0 bottom-[-8.5rem] z-10 hidden justify-center px-5 md:flex">
+          <HeroQuoteCard />
         </div>
       </div>
+
+      <div className="relative z-10 -mt-16 px-4 sm:px-6 md:hidden">
+        <HeroQuoteCard />
+      </div>
     </section>
+  );
+}
+
+function HeroQuoteCard() {
+  return (
+    <div
+      className="relative w-full max-w-[820px] rounded-[24px] border border-white/80 px-4 pt-10 pb-6 text-center backdrop-blur-[18px] sm:rounded-[30px] sm:px-12 sm:pt-12 sm:pb-9"
+      style={{
+        background:
+          "linear-gradient(120deg, rgba(255,255,255,0.96) 0%, rgba(247,250,255,0.94) 48%, rgba(226,237,255,0.93) 100%)",
+        boxShadow:
+          "0 18px 48px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.88)",
+      }}
+    >
+      {/* Brand badge — circular with our logo */}
+      <div className="absolute left-1/2 top-[-28px] -translate-x-1/2 sm:top-[-32px]">
+        <div className="flex size-[70px] items-center justify-center rounded-full bg-white p-2 shadow-[0_12px_24px_rgba(15,36,76,0.18)] ring-4 ring-brand-blue sm:size-[82px]">
+          <img src={logo323} alt="323 Cleaning Solutions" className="h-full w-full object-contain" />
+        </div>
+      </div>
+
+      {/* Mini info row */}
+      <div className="relative mb-4 flex flex-wrap justify-center gap-x-6 gap-y-1 pt-1 text-[11px] font-semibold text-brand-navy/70 sm:mb-6 sm:gap-x-16 sm:text-[12px]">
+        <span>Vetted Cleaners</span>
+        <span className="inline-flex items-center gap-1">
+          5 <Star className="size-3 fill-brand-navy text-brand-navy" /> Service
+        </span>
+      </div>
+
+      {/* Headline */}
+      <h1
+        className="mx-auto mb-4 max-w-[700px] font-display font-medium text-brand-navy sm:mb-5"
+        style={{
+          fontSize: "clamp(30px, 8.2vw, 56px)",
+          lineHeight: 1.08,
+          letterSpacing: "0",
+        }}
+      >
+        Your #1 {BRAND.region} Exterior Cleaning Service
+      </h1>
+
+      <p className="mb-5 text-[13px] font-semibold leading-snug text-brand-navy/80 sm:mb-7 sm:text-[14px]">
+        Get Free Quote from a Trusted Cleaning Service
+      </p>
+
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="mb-6 grid grid-cols-1 gap-3 sm:mb-7 sm:[grid-template-columns:1.18fr_0.86fr_0.86fr] sm:gap-5"
+      >
+        <Field placeholder="Name" />
+        <Select options={["1 Bedroom", "2 Bedrooms", "3 Bedrooms", "4+ Bedrooms"]} />
+        <Select options={["1 Bathroom", "2 Bathrooms", "3+ Bathrooms"]} />
+        <Field placeholder="Email Address" type="email" />
+        <Field placeholder="Phone" type="tel" />
+        <Field placeholder="Zip Code" />
+      </form>
+
+      <button
+        type="submit"
+        onClick={(e) => e.preventDefault()}
+        className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-brand-navy px-8 py-3.5 text-[14px] font-extrabold text-white shadow-soft transition hover:shadow-[0_12px_25px_rgba(15,36,76,0.35)] sm:w-auto sm:min-w-[140px] sm:px-10 sm:py-4"
+      >
+        Get Price
+      </button>
+    </div>
   );
 }
 
@@ -186,7 +194,7 @@ function Field({ placeholder, type = "text" }: { placeholder: string; type?: str
     <input
       type={type}
       placeholder={placeholder}
-      className="w-full h-[51px] rounded-[8px] bg-white/95 px-[15px] text-[14px] text-brand-navy placeholder:text-[#777] border border-black/[0.045] shadow-[0_4px_16px_rgba(0,0,0,0.035)] outline-none focus:border-brand-navy/30"
+      className="h-12 w-full rounded-[8px] border border-black/[0.045] bg-white/95 px-[15px] text-[14px] text-brand-navy shadow-[0_4px_16px_rgba(0,0,0,0.035)] outline-none placeholder:text-[#777] focus:border-brand-navy/30 sm:h-[51px]"
     />
   );
 }
@@ -194,7 +202,7 @@ function Field({ placeholder, type = "text" }: { placeholder: string; type?: str
 function Select({ options }: { options: string[] }) {
   return (
     <div className="relative">
-      <select className="w-full h-[51px] appearance-none rounded-[8px] bg-white/95 px-[15px] pr-10 text-[14px] text-[#777] border border-black/[0.045] shadow-[0_4px_16px_rgba(0,0,0,0.035)] outline-none focus:border-brand-navy/30">
+      <select className="h-12 w-full appearance-none rounded-[8px] border border-black/[0.045] bg-white/95 px-[15px] pr-10 text-[14px] text-[#777] shadow-[0_4px_16px_rgba(0,0,0,0.035)] outline-none focus:border-brand-navy/30 sm:h-[51px]">
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
