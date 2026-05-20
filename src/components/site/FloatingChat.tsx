@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
-import { useLocation } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
 import { Mail, MessageCircle, Phone, Send, Sparkles, X } from "lucide-react";
 
 import { BRAND } from "@/lib/site/data";
@@ -20,16 +19,6 @@ function encodeMailBody(message: string) {
 export function FloatingChat() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
-  const [pastHomeHero, setPastHomeHero] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
-  useEffect(() => {
-    const onScroll = () => setPastHomeHero(window.scrollY > 760);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const mailHref = useMemo(
     () =>
@@ -44,14 +33,12 @@ export function FloatingChat() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className={`fixed bottom-4 right-4 z-[70] flex size-12 items-center justify-center rounded-full bg-brand-navy text-white shadow-[0_22px_52px_-18px_rgba(15,36,76,0.75)] ring-1 ring-white/40 transition-all hover:-translate-y-1 md:bottom-5 md:right-5 md:size-16 ${
+        className={`fixed bottom-5 right-5 z-[70] flex size-16 items-center justify-center rounded-full bg-brand-navy text-white shadow-[0_22px_52px_-18px_rgba(15,36,76,0.75)] ring-1 ring-white/40 transition-all hover:-translate-y-1 ${
           open ? "pointer-events-none scale-90 opacity-0" : ""
-        } ${
-          isHome && !pastHomeHero ? "pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100" : ""
         }`}
         aria-label="Open chat"
       >
-        <MessageCircle className="size-6 md:size-7" />
+        <MessageCircle className="size-7" />
       </button>
 
       {open && (

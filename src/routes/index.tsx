@@ -115,7 +115,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-5 px-4 sm:px-6 md:hidden">
+      <div className="relative z-10 -mt-36 px-4 sm:px-6 md:hidden">
         <HeroQuoteCard />
       </div>
     </section>
@@ -125,7 +125,7 @@ function Hero() {
 function HeroQuoteCard() {
   return (
     <div
-      className="relative w-full max-w-[820px] rounded-[24px] border border-white/80 px-4 pt-8 pb-6 text-center backdrop-blur-[18px] sm:rounded-[30px] sm:px-12 sm:pt-12 sm:pb-9"
+      className="relative w-full max-w-[820px] rounded-[24px] border border-white/80 px-4 pt-10 pb-6 text-center backdrop-blur-[18px] sm:rounded-[30px] sm:px-12 sm:pt-12 sm:pb-9"
       style={{
         background:
           "linear-gradient(120deg, rgba(255,255,255,0.96) 0%, rgba(247,250,255,0.94) 48%, rgba(226,237,255,0.93) 100%)",
@@ -134,8 +134,8 @@ function HeroQuoteCard() {
       }}
     >
       {/* Brand badge — circular with our logo */}
-      <div className="absolute left-1/2 top-[-24px] -translate-x-1/2 sm:top-[-32px]">
-        <div className="flex size-[58px] items-center justify-center rounded-full bg-white p-2 shadow-[0_12px_24px_rgba(15,36,76,0.18)] ring-[3px] ring-brand-blue sm:size-[82px] sm:ring-4">
+      <div className="absolute left-1/2 top-[-28px] -translate-x-1/2 sm:top-[-32px]">
+        <div className="flex size-[70px] items-center justify-center rounded-full bg-white p-2 shadow-[0_12px_24px_rgba(15,36,76,0.18)] ring-4 ring-brand-blue sm:size-[82px]">
           <img src={logo323} alt="323 Cleaning Solutions" className="h-full w-full object-contain" />
         </div>
       </div>
@@ -152,7 +152,7 @@ function HeroQuoteCard() {
       <h1
         className="mx-auto mb-4 max-w-[700px] font-display font-medium text-brand-navy sm:mb-5"
         style={{
-          fontSize: "clamp(28px, 7.8vw, 56px)",
+          fontSize: "clamp(30px, 8.2vw, 56px)",
           lineHeight: 1.08,
           letterSpacing: "0",
         }}
