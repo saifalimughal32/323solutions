@@ -69,13 +69,13 @@ export function Header() {
         <div
           className={
             isHome
-              ? "flex items-center justify-between gap-4 h-[86px] bg-white rounded-b-[36px] px-6 lg:px-8 shadow-[0_14px_38px_rgba(15,36,76,0.10)]"
+              ? "flex h-[72px] items-center justify-between gap-4 rounded-b-[30px] bg-white px-5 shadow-[0_14px_38px_rgba(15,36,76,0.10)] md:h-[86px] md:rounded-b-[36px] md:px-6 lg:px-8"
               : "flex items-center justify-between gap-4 h-20"
           }
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0" aria-label={BRAND.name}>
-            <img src={logo323} alt={`${BRAND.name} logo`} className="h-11 w-auto" />
+            <img src={logo323} alt={`${BRAND.name} logo`} className="h-9 w-auto md:h-11" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-7 ml-auto">
